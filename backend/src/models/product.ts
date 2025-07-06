@@ -29,7 +29,7 @@ export const productSchema = new Schema<IProduct>({
     type: String,
     unique: true,
     required: true,
-    minLenght: 2,
+    minLength: 2,
     maxLength: 30,
   },
   image: productImage,
