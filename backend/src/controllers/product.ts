@@ -18,7 +18,7 @@ export const createProduct = (req:Request, res:Response, next:NextFunction) => {
 
   return Product.create(data)
     .then((product) => {
-      res.status(201).send(product._id);
+      res.status(201).send({ id: product._id });
     })
     .catch((error) => {
       if (error instanceof Error && error.message.includes('E11000')) {
