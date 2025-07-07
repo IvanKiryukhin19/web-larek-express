@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import orderSchema from '../models/order-schema';
+import orderSchema from './order-schema';
 import BadRequestError from '../errors/bab-request-error';
 
 const validateOrder = (req:Request, res:Response, next:NextFunction) => {

@@ -23,9 +23,14 @@ const createOrder = (req:Request, res:Response, next:NextFunction) => {
           return price && !Number.isNaN(price);
         });
 
+        // если у всех товаров есть цена проверяем сумму заказа
         if (existingPrices) {
-          const uniqueId = faker.string.uuid();
-          return res.status(200).send({ id: uniqueId, total: data.total });
+          const sumOrder = items.reduce((accumulator, Item) => accumulator + (Item.price as number), 0);
+
+          if (sumOrder === data.total) {
+            const uniqueId = faker.string.uuid();
+            return res.status(200).send({ id: uniqueId, total: data.total });
+          }
         }
       }
       return next(new BadRequestError('Ошибка валидации данных при создании заказа'));

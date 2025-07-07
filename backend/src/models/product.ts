@@ -42,6 +42,7 @@ export const productSchema = new Schema<IProduct>({
   },
   price: {
     type: Number,
+    default: null,
   },
 });
 

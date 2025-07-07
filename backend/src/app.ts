@@ -21,7 +21,7 @@ app.use('/', routerCreateProduct);
 app.use('/', createOrder);
 app.use(checkRoutes);
 
-app.use(errorsJoi(), errorLogger);
-app.use(sendError);
+app.use(errorLogger);
+app.use(errorsJoi(), sendError);
 
 app.listen(3000, () => { console.log('Listening on port 3000'); });
